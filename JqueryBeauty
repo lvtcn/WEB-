@@ -1,4 +1,4 @@
-//商城常用函数
+////商城常用函数
 function setAmount(dom, t)
 {
 	var n = $("#" + dom).val();
@@ -32,7 +32,7 @@ function gettotal()
 }
 
 
-//定时任务
+////定时任务
 <script type="text/javascript">
 function startMonitoring() {
 		var total = '';
@@ -45,7 +45,8 @@ function startMonitoring() {
 // window.setInterval(startMonitoring, 100);
 </script>
 
-//获取接触屏幕时的X和Y
+
+////获取接触屏幕时的X和Y
 $('body').bind('touchstart', function (e) {
 startX = e.originalEvent.changedTouches[0].pageX,
     startY = e.originalEvent.changedTouches[0].pageY;
