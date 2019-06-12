@@ -1,0 +1,23 @@
+#阿里妈妈底部CSS操作
+
+.index-nav-map-wrap .bubble {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: #1e2438;
+    color: #1e2438;
+    box-shadow: 10em 0 0 .01em, 20em 0 0 .01em, 30em 0 0 .01em, 40em 0 0 .01em, 12em 0 0 .01em, 17em 0 0 .01em, 25em 0 0 .01em, 37em 0 0 .01em, -10em 0 0 .01em, -20em 0 0 .01em, -30em 0 0 .01em, -40em 0 0 .01em, -12em 0 0 .01em, -17em 0 0 .01em, -25em 0 0 .01em, -37em 0 0 .01em, 10em -0.1em 0 .01em, 20em -0.2em 0 .01em, 30em -0.3em 0 .01em, 40em -0.1em 0 .01em, 17em -0.3em 0 .01em, 17em -0.2em 0 .01em, 25em -0.1em 0 .01em, 37em -0.2em 0 .01em, -11em -0.5em 0 .01em, -20em -0.3em 0 .01em, -30em -0.2em 0 .01em, -40em -0.1em 0 .01em, -15em -0.2em 0 .01em, -17em -0.3em 0 .01em, -25em -0.4em 0 .01em, -37em -0.2em 0 .01em, -11em 0 0 .01em, 10.6em 0 0 .01em, 12.5em 0 0 .01em, 13.6em 0 0 .01em, -5em 0 0 .01em, -6em 0 0 .01em, -7.4em 0 0 .01em, -9.2em 0 0 .01em, 5em 0 0 .01em, 6em 0 0 .01em, 7.4em 0 0 .01em, 9.2em 0 0 .01em, 1em 0 0 .01em, 2em .1em 0 .01em, 4em .2em 0 .01em, 3.2em .5em 0 .01em, -1em .5em 0 .01em, -2em .3em 0 .01em, -4em .1em 0 .01em, -3.2em .2em 0 .01em;
+    border-radius: 50%;
+}
+.index-nav-map-wrap:hover .bubble {
+    animation: 2s bubble-up infinite;
+}
+@keyframes bubble-up {
+    100% {
+        box-shadow: 10em -11em 0 .01em, 20em -17em 0 .01em, 30em -20em 0 .01em, 40em -30em 0 .01em, 12em -12em 0 .01em, 17em -5em 0 .01em, 25em -16em 0 .01em, 37em -22em 0 .01em, -10em -32em 0 .01em, -20em -12em 0 .01em, -30em -11em 0 .01em, -40em -13em 0 .01em, -12em -15em 0 .01em, -17em -9em 0 .01em, -25em -14em 0 .01em, -37em -21em 0 .01em, 10em -17em 0 .01em, 20em -21em 0 .01em, 30em -11em 0 .01em, 40em -19em 0 .01em, 17em -23em 0 .01em, 17em -10em 0 .01em, 25em -14.5em 0 .01em, 37em -12.9em 0 .01em, -11em -21.3em 0 .01em, -20em -22.4em 0 .01em, -30em -15.3em 0 .01em, -40em -19.2em 0 .01em, -15em -21.3em 0 .01em, -17em -22.4em 0 .01em, -25em -10.3em 0 .01em, -37em -9.3em 0 .01em, -11em -22.4em 0 .01em, 10.6em -20.4em 0 .01em, 12.5em -6.9em 0 .01em, 13.6em -8.3em 0 .01em, -5em -21.4em 0 .01em, -6em -13em 0 .01em, -7.4em -15em 0 .01em, -9.2em -22em 0 .01em, 5em -30em 0 .01em, 6em -24em 0 .01em, 7.4em -11em 0 .01em, 9.2em -9.4em 0 .01em, 1em -22em 0 .01em, 2em -14em 0 .01em, 4em -21em 0 .01em, 3.2em -16em 0 .01em, -1em -21em 0 .01em, -2em -19em 0 .01em, -4em -17em 0 .01em, -3.2em -15em 0 .01em;
+        bottom: 200px;
+        opacity: 0;
+    }
+}
