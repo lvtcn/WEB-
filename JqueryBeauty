@@ -1,0 +1,31 @@
+function setAmount(dom, t)
+{
+	var n = $("#" + dom).val();
+	if(t == 'jia')
+	{
+		var num = parseInt(n)+1;
+		if(num == 0){
+			return;
+		}
+		$("#" + dom).val(num);
+		setTimeout(function(){gettotal()}, 200)
+	}
+	else
+	{
+		var num = parseInt(n)-1;
+		if(num == 0){
+			return;
+		}
+		$("#" + dom).val(num);
+		setTimeout(function(){gettotal()}, 200)		
+	}
+}
+
+function gettotal()
+{
+	danjia = $("#itemid input:checked").attr("rel")
+	num = $("#num").val();
+	total = danjia * num;
+	$("#heji").val(total);
+	$("#danjia").val(danjia);
+}
