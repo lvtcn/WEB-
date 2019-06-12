@@ -104,3 +104,43 @@ function qieOpList(a, b, imgnone, child) {
         }
     })
 }
+
+
+////IE version low prompt 提示
+<script>
+var DEFAULT_VERSION = 8.0;
+var ua = navigator.userAgent.toLowerCase();
+var isIE = ua.indexOf("msie") > -1;
+var safariVersion;
+if (isIE) {
+safariVersion = ua.match(/msie ([\d.]+)/)[1];
+}
+if (safariVersion <= DEFAULT_VERSION) {
+$("html").remove();
+alert("系统检测到您使用的浏览器版本过低，不能实现完美体验，请及时更新浏览器版本！");
+}
+;
+//No right mouse button operation 禁止
+if (window.Event) {
+document.captureEvents(Event.MOUSEUP);
+}
+function nocontextmenu() {
+event.cancelBubble = true
+event.returnValue = false;
+return false;
+}
+function norightclick(e) {
+if (window.Event) {
+if (e.which == 2 || e.which == 3)
+return false;
+} else if (event.button == 2 || event.button == 3) {
+event.cancelBubble = true
+event.returnValue = false;
+return false;
+}
+}
+document.oncontextmenu = nocontextmenu; // for IE5+
+document.onmousedown = norightclick; // for all others
+document.oncontextmenu = new Function("event.returnValue=false;"); //禁止右键
+// document.onselectstart=new Function("event.returnValue=false;"); //禁止选中
+</script>
