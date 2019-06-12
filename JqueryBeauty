@@ -73,3 +73,34 @@ if (Math.abs(distanceX) > Math.abs(distanceY) && distanceX > 0) {
 }
 
 });
+
+////切换操作
+function qieOpList(a, b, imgnone, child) {
+    if (child == "" || child == undefined) {
+        child = 1;
+    }
+    $(a + ":nth-child(" + child + ")").addClass("cur");
+    //显示元素
+    $(b).hide();
+    $(b).removeClass("cur");
+    $(b + ":nth-child(" + child + ")").show();
+    $(b + ":nth-child(" + child + ")").addClass("cur");
+    //点击元素
+    $(document).on("click", a, function () {
+        var that = $(this);
+        $(a).removeClass("cur");
+        that.addClass("cur");
+        var _index = that.index();
+        $(b).hide();
+        $(b).removeClass("cur");
+        $(b).eq(_index).show().addClass("cur");
+        _bhtml = $(b).eq(_index).find("ul").html();
+        if (_bhtml == "" && imgnone != undefined) {
+            $(b).eq(_index).html("<img src='" + imgnone + "' />");
+        }
+        var _hasc = $(b).eq(_index).find("a.button").hasClass("cur");
+        if (_hasc == false) {
+            $(b).eq(_index).find("a.button:nth-child(1)").addClass("cur");
+        }
+    })
+}
