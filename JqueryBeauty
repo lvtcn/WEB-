@@ -1,4 +1,4 @@
-#商城常用函数#
+//商城常用函数
 function setAmount(dom, t)
 {
 	var n = $("#" + dom).val();
@@ -32,7 +32,7 @@ function gettotal()
 }
 
 
-#定时任务#
+//定时任务
 <script type="text/javascript">
 function startMonitoring() {
 		var total = '';
@@ -44,3 +44,31 @@ function startMonitoring() {
 // startMonitoring();
 // window.setInterval(startMonitoring, 100);
 </script>
+
+//获取接触屏幕时的X和Y
+$('body').bind('touchstart', function (e) {
+startX = e.originalEvent.changedTouches[0].pageX,
+    startY = e.originalEvent.changedTouches[0].pageY;
+});
+
+$('body').bind('touchmove', function (e) {
+//获取滑动屏幕时的X,Y
+endX = e.originalEvent.changedTouches[0].pageX,
+    endY = e.originalEvent.changedTouches[0].pageY;
+//获取滑动距离
+distanceX = endX - startX;
+distanceY = endY - startY;
+//判断滑动方向
+if (Math.abs(distanceX) > Math.abs(distanceY) && distanceX > 0) {
+    console.log('往右滑动');
+} else if (Math.abs(distanceX) > Math.abs(distanceY) && distanceX < 0) {
+    console.log('往左滑动');
+} else if (Math.abs(distanceX) < Math.abs(distanceY) && distanceY < 0) {
+    console.log('往上滑动');
+} else if (Math.abs(distanceX) < Math.abs(distanceY) && distanceY > 0) {
+    console.log('往下滑动');
+} else {
+    console.log('点击未滑动');
+}
+
+});
