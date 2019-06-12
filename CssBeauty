@@ -1,4 +1,4 @@
-#阿里妈妈底部CSS操作
+#阿里妈妈底部CSS操作#
 
 .index-nav-map-wrap .bubble {
     position: absolute;
@@ -21,3 +21,7 @@
         opacity: 0;
     }
 }
+
+#css3滑动光晕效果#
+.warp li .tu .light{position:absolute;left:-170px;top:0;width:141px;height:131px;/* 根据图像高度自行修改 */background-image: -moz-linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,0.5),rgba(255,255,255,0));background-image: -webkit-linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,0.5),rgba(255,255,255,0));transform: skewx(-25deg);-o-transform: skewx(-25deg);-moz-transform: skewx(-25deg);-webkit-transform: skewx(-25deg);}
+.warp li:hover .tu .light{ left:141px;/* 根据图像宽度自行修改 */ -moz-transition:0.5s; -o-transition:0.5s; -webkit-transition:0.5s; transition:0.5s; }
