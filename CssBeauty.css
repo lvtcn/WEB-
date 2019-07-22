@@ -3,7 +3,6 @@
 * @Email:   2039750417@qq.com
 * @Funname: 阿里妈妈底部效果
 * */
-
 .index-nav-map-wrap .bubble {
     position: absolute;
     bottom: 2px;
@@ -31,6 +30,20 @@
 * @Email:   2039750417@qq.com
 * @Funname: 元素一道光
 * */
-
 .warp li .tu .light{position:absolute;left:-170px;top:0;width:141px;height:131px;/* 根据图像高度自行修改 */background-image: -moz-linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,0.5),rgba(255,255,255,0));background-image: -webkit-linear-gradient(0deg,rgba(255,255,255,0),rgba(255,255,255,0.5),rgba(255,255,255,0));transform: skewx(-25deg);-o-transform: skewx(-25deg);-moz-transform: skewx(-25deg);-webkit-transform: skewx(-25deg);}
 .warp li:hover .tu .light{ left:141px;/* 根据图像宽度自行修改 */ -moz-transition:0.5s; -o-transition:0.5s; -webkit-transition:0.5s; transition:0.5s; }
+
+/*
+* @Author:  siyuan
+* @Email:   2039750417@qq.com
+* @Funname: 动感手机站菜单按钮
+* */
+.sykui-menu{overflow: hidden;width: 30px;position: relative;height: 25px;float:right;margin-top: 25px;margin-right: 10px;}
+.sykui-menu span, .sykui-menu:after, .sykui-menu:before{border-radius: 20px;transition: 0.3s;-ms-transition: 0.3s; /* Internet Explorer */-moz-transition: 0.3s; /* Firefox */-webkit-transition: 0.3s; /* Safari 和 Chrome */-o-transition: 0.3s; /* Opera */display: block;position: absolute;content: "";display: block;height: 3px;background: #315fbd;width: 30px;}
+.sykui-menu span{top: 50%;right: 0px;margin-top: -1.5px;transition: 0.1s;-ms-transition: 0.1s; /* Internet Explorer */-moz-transition: 0.1s; /* Firefox */-webkit-transition: 0.1s; /* Safari 和 Chrome */-o-transition: 0.1s; /* Opera */}
+.sykui-menu:after{bottom: 0px;}
+.sykui-menu:before{top: 0px;}
+.sykui-menu.exit-open{position: relative;z-index: 999999999;}
+.sykui-menu.exit-open span{right: -100%;transition: 0.3s;-ms-transition: 0.3s; /* Internet Explorer */-moz-transition: 0.3s; /* Firefox */-webkit-transition: 0.3s; /* Safari 和 Chrome */-o-transition: 0.3s; /* Opera */}
+.sykui-menu.exit-open:after{transition-delay: 0.3s;bottom: 11px;/* Rotate div */transform: rotate(45deg);-ms-transform: rotate(45deg); /* Internet Explorer */-moz-transform: rotate(45deg); /* Firefox */-webkit-transform: rotate(45deg); /* Safari 和 Chrome */-o-transform: rotate(45deg); /* Opera */}
+.sykui-menu.exit-open:before{transition-delay: 0.3s;top: 11px;/* Rotate div */transform: rotate(-45deg);-ms-transform: rotate(-45deg); /* Internet Explorer */-moz-transform: rotate(-45deg); /* Firefox */-webkit-transform: rotate(-45deg); /* Safari 和 Chrome */-o-transform: rotate(-45deg); /* Opera */}
