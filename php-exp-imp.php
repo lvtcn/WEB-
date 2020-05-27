@@ -7,36 +7,37 @@ if (empty($chkid)) {
 	return;	
 }
 $objPHPExcel = new PHPExcel();
-$objPHPExcel->getProperties()->setCreator("Miscuz!")
-							 ->setLastModifiedBy("Miscuz!")
-							 ->setTitle("Office 2007 XLSX Document")
-							 ->setSubject("Office 2007 XLSX Document")
-							 ->setDescription("Document for Office 2007 XLSX")
-							 ->setKeywords("Document for Office 2007 XLSX")
-							 ->setCategory("");
+$objPHPExcel->getProperties()->setCreator("Siyuan!")
+->setLastModifiedBy("Siyuan!")
+->setTitle("Office 2007 XLSX Document")
+->setSubject("Office 2007 XLSX Document")
+->setDescription("Document for Office 2007 XLSX")
+->setKeywords("Document for Office 2007 XLSX")
+->setCategory("");
+
 $rowindex = 1;
 $objPHPExcel->setActiveSheetIndex(0)
-		->setCellValue("A{$rowindex}", '代理商')
-		->setCellValue("B{$rowindex}", '用户编号')
-		->setCellValue("C{$rowindex}", '学员姓名')
-		->setCellValue("D{$rowindex}", '联系电话')
-		->setCellValue("E{$rowindex}", '身份证号')
-		->setCellValue("F{$rowindex}", '电子邮箱')
-		->setCellValue("G{$rowindex}", '购买商品')
-		->setCellValue("H{$rowindex}", '开通时间');
+->setCellValue("A{$rowindex}", '代理商')
+->setCellValue("B{$rowindex}", '用户编号')
+->setCellValue("C{$rowindex}", '学员姓名')
+->setCellValue("D{$rowindex}", '联系电话')
+->setCellValue("E{$rowindex}", '身份证号')
+->setCellValue("F{$rowindex}", '电子邮箱')
+->setCellValue("G{$rowindex}", '购买商品')
+->setCellValue("H{$rowindex}", '开通时间');
 
 $data = $db->getall("select * from #@__us where id in ({$chkid})");
 foreach ($data as $val) {
 	$rowindex += 1;
 	$objPHPExcel->setActiveSheetIndex(0)
-			->setCellValue("A{$rowindex}", nostr($db->v("#@__proxy|proxy_name|id='{$val['proxy_id']}'")))
-			->setCellValue("B{$rowindex}", nostr($val['num']))
-			->setCellValue("C{$rowindex}", nostr($val['realname']))
-			->setCellValue("D{$rowindex}", nostr($val['uname']))
-			->setCellValue("E{$rowindex}", nostr($val['idcard']))
-			->setCellValue("F{$rowindex}", nostr($val['email']))
-			->setCellValue("G{$rowindex}", nostr(getseletedproducttxt($val['id'])))
-			->setCellValue("H{$rowindex}", date("Y-m-d H:i:s", $val['createtime']));
+->setCellValue("A{$rowindex}", nostr($db->v("#@__proxy|proxy_name|id='{$val['proxy_id']}'")))
+->setCellValue("B{$rowindex}", nostr($val['num']))
+->setCellValue("C{$rowindex}", nostr($val['realname']))
+->setCellValue("D{$rowindex}", nostr($val['uname']))
+->setCellValue("E{$rowindex}", nostr($val['idcard']))
+->setCellValue("F{$rowindex}", nostr($val['email']))
+->setCellValue("G{$rowindex}", nostr(getseletedproducttxt($val['id'])))
+->setCellValue("H{$rowindex}", date("Y-m-d H:i:s", $val['createtime']));
 }
 
 $objPHPExcel->getActiveSheet()->setTitle('汇总表');	
