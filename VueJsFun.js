@@ -53,7 +53,7 @@ let = pageTurner: {
     pagesize: 2,
     pagelist: {}
 }
-pageFun: function (that, $total, $current) {
+function pageFun(that, $total, $current) {
     // 变量定义
     let $p1, $p2, $pagenum, $nextpage, $prepage, $pagestr = [], $pagei = 0;
     // 总页数
@@ -87,4 +87,14 @@ pageFun: function (that, $total, $current) {
         last: $pagenum,
     }
     // console.log(that.pageTurner.pagelist)
+}
+
+/*
+* Name: 获取URL参数
+* */
+function GetQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return null;
 }
