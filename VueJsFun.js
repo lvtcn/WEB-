@@ -34,6 +34,20 @@ function get_info_action(that, url, data, datatype, datafleid) {
 * @Inherit Vue Data.pageTurner
 * */
 
+<ul class="pagination" style="display: flex; justify-content: center; width: 100%;"
+    v-if="pageTurner.pagelist.home">
+    <li><a v-on:click="pageClick(pageTurner.pagelist.home)">‹‹</a></li>
+    <li><a v-on:click="pageClick(pageTurner.pagelist.prepage)">‹</a></li>
+    <!--当前页背景色为蓝色-->
+    <li v-for="(item, index) in pageTurner.pagelist.pagestr"
+        v-bind:class="item.selected == 1 ? 'active' : ''">
+        <a v-on:click="pageClick(item.value)">{{ item.value }}</a>
+    </li>
+    <li><a v-on:click="pageClick(pageTurner.pagelist.nextpage)"> › </a></li>
+    <li><a v-on:click="pageClick(pageTurner.pagelist.last)">››</a></li>
+    <li><a>共<i>{{pageTurner.pagelist.last}}</i>页</a></li>
+</ul>
+
 // 翻页Data配置
 let = pageTurner: {
     pagecur: 1,
