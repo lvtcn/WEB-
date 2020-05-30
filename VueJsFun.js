@@ -34,8 +34,7 @@ function get_info_action(that, url, data, datatype, datafleid) {
 * @Inherit Vue Data.pageTurner
 * */
 
-<ul class="pagination" style="display: flex; justify-content: center; width: 100%;"
-    v-if="pageTurner.pagelist.home">
+<ul class="pagination" v-if="pageTurner.pagelist.home">
     <li><a v-on:click="pageClick(pageTurner.pagelist.home)">‹‹</a></li>
     <li><a v-on:click="pageClick(pageTurner.pagelist.prepage)">‹</a></li>
     <!--当前页背景色为蓝色-->
