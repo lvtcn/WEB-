@@ -10,7 +10,7 @@ require "{$app}/src/header.php";
             <div class="padding"
                  style="background: url(/public/static/default/images/loading_1c96706b.gif) no-repeat center; background-size: auto auto;">
                 <img class="wechat__qrcode" alt="" style="display: none" height="300"/>
-                <div class="text-gray padding-top-xs text-center text-sm">请扫码关注“珍乳网公众号”进行注册</div>
+                <div class="text-gray padding-top-xs text-center text-sm">请扫码关注“公众号”进行注册</div>
             </div>
         </div>
     </div>
