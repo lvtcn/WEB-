@@ -47,3 +47,140 @@
 .sykui-menu.exit-open span{right: -100%;transition: 0.3s;-ms-transition: 0.3s; /* Internet Explorer */-moz-transition: 0.3s; /* Firefox */-webkit-transition: 0.3s; /* Safari 和 Chrome */-o-transition: 0.3s; /* Opera */}
 .sykui-menu.exit-open:after{transition-delay: 0.3s;bottom: 11px;/* Rotate div */transform: rotate(45deg);-ms-transform: rotate(45deg); /* Internet Explorer */-moz-transform: rotate(45deg); /* Firefox */-webkit-transform: rotate(45deg); /* Safari 和 Chrome */-o-transform: rotate(45deg); /* Opera */}
 .sykui-menu.exit-open:before{transition-delay: 0.3s;top: 11px;/* Rotate div */transform: rotate(-45deg);-ms-transform: rotate(-45deg); /* Internet Explorer */-moz-transform: rotate(-45deg); /* Firefox */-webkit-transform: rotate(-45deg); /* Safari 和 Chrome */-o-transform: rotate(-45deg); /* Opera */}
+
+/*
+* @Author:  siyuan
+* @Email:   2039750417@qq.com
+* @Funname: 手机站通用导航弹框
+* */
+.header-lnline {
+    .sykui-menuCol {
+      display: block;
+      margin: 0;
+      padding: 0;
+      position: fixed;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 99999;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.899);
+      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.678) 0%, rgba(0, 0, 0, 0.988) 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.678)), color-stop(100%, rgba(0, 0, 0, 0.988)));
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.678) 0%, rgba(0, 0, 0, 0.89) 100%);
+      background: -o-linear-gradient(top, rgba(0, 0, 0, 0.678) 0%, rgba(0, 0, 0, 0.988) 100%);
+      background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.678) 0%, rgba(0, 0, 0, 0.988) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.678) 0%, rgba(0, 0, 0, 0.988) 100%);
+    }
+
+    .sykui-menuCol ul {
+      display: inline-block;
+      margin-top: 10%;
+    }
+
+    .sykui-menuCol li {
+      transition: all 0.3s ease 0s;
+      position: relative;
+      padding-top: 50px;
+    }
+
+    .sykui-menuCol li a {
+      position: relative;
+      transition: all 0.3s ease 0s;
+    }
+
+    .sykui-menuCol li a::after {
+      visibility: hidden;
+      opacity: 0;
+      content: "";
+      width: 25px;
+      height: 4px;
+      background: #f09d21;
+      position: absolute;
+      left: -80px;
+      top: 28px;
+      transition: all 0.3s ease 0s;
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    .sykui-menuCol li:hover a {
+      color: #f09d21;
+    }
+
+    .sykui-menuCol li a:hover::after {
+      visibility: visible;
+      left: -40px;
+      opacity: 1;
+    }
+
+    .sykui-menuCol li a {
+      font-size: 30px;
+      font-weight: bold;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .sykui-menuCol .menu-exit {
+      position: fixed;
+      z-index: 99;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      padding: 20px;
+    }
+
+    .sykui-menuCol .menu-exit i {
+      font-size: 40px;
+      color: #fff;
+    }
+
+    .sykui-menuCol.shows {
+      opacity: 0;
+      visibility: hidden;
+      top: 0px;
+      left: auto;
+      right: 0px;
+      transform: rotate(15deg);
+    }
+
+    .sykui-menuCol.shows li {
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease 0s;
+    }
+
+    .sykui-menuCol.shows .bubble {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      background: #774802;
+      color: #774802;
+      box-shadow: 10em 0 0 0.01em, 20em 0 0 0.01em, 30em 0 0 0.01em, 40em 0 0 0.01em, 12em 0 0 0.01em, 17em 0 0 0.01em, 25em 0 0 0.01em, 37em 0 0 0.01em, -10em 0 0 0.01em, -20em 0 0 0.01em, -30em 0 0 0.01em, -40em 0 0 0.01em, -12em 0 0 0.01em, -17em 0 0 0.01em, -25em 0 0 0.01em, -37em 0 0 0.01em, 10em -0.1em 0 0.01em, 20em -0.2em 0 0.01em, 30em -0.3em 0 0.01em, 40em -0.1em 0 0.01em, 17em -0.3em 0 0.01em, 17em -0.2em 0 0.01em, 25em -0.1em 0 0.01em, 37em -0.2em 0 0.01em, -11em -0.5em 0 0.01em, -20em -0.3em 0 0.01em, -30em -0.2em 0 0.01em, -40em -0.1em 0 0.01em, -15em -0.2em 0 0.01em, -17em -0.3em 0 0.01em, -25em -0.4em 0 0.01em, -37em -0.2em 0 0.01em, -11em 0 0 0.01em, 10.6em 0 0 0.01em, 12.5em 0 0 0.01em, 13.6em 0 0 0.01em, -5em 0 0 0.01em, -6em 0 0 0.01em, -7.4em 0 0 0.01em, -9.2em 0 0 0.01em, 5em 0 0 0.01em, 6em 0 0 0.01em, 7.4em 0 0 0.01em, 9.2em 0 0 0.01em, 1em 0 0 0.01em, 2em 0.1em 0 0.01em, 4em 0.2em 0 0.01em, 3.2em 0.5em 0 0.01em, -1em 0.5em 0 0.01em, -2em 0.3em 0 0.01em, -4em 0.1em 0 0.01em, -3.2em 0.2em 0 0.01em;
+      border-radius: 50%;
+    }
+
+    .sykui-menuCol.shows.active {
+      opacity: 1;
+      visibility: visible;
+      transition: all 0.3s ease 0s;
+      transform: rotate(0deg);
+    }
+
+    .sykui-menuCol.shows.active .bubble {
+      animation: 2s bubble-up infinite;
+    }
+
+    @keyframes bubble-up {
+      100% {
+        box-shadow: 10em -11em 0 0.01em, 20em -17em 0 0.01em, 30em -20em 0 0.01em, 40em -30em 0 0.01em, 12em -12em 0 0.01em, 17em -5em 0 0.01em, 25em -16em 0 0.01em, 37em -22em 0 0.01em, -10em -32em 0 0.01em, -20em -12em 0 0.01em, -30em -11em 0 0.01em, -40em -13em 0 0.01em, -12em -15em 0 0.01em, -17em -9em 0 0.01em, -25em -14em 0 0.01em, -37em -21em 0 0.01em, 10em -17em 0 0.01em, 20em -21em 0 0.01em, 30em -11em 0 0.01em, 40em -19em 0 0.01em, 17em -23em 0 0.01em, 17em -10em 0 0.01em, 25em -14.5em 0 0.01em, 37em -12.9em 0 0.01em, -11em -21.3em 0 0.01em, -20em -22.4em 0 0.01em, -30em -15.3em 0 0.01em, -40em -19.2em 0 0.01em, -15em -21.3em 0 0.01em, -17em -22.4em 0 0.01em, -25em -10.3em 0 0.01em, -37em -9.3em 0 0.01em, -11em -22.4em 0 0.01em, 10.6em -20.4em 0 0.01em, 12.5em -6.9em 0 0.01em, 13.6em -8.3em 0 0.01em, -5em -21.4em 0 0.01em, -6em -13em 0 0.01em, -7.4em -15em 0 0.01em, -9.2em -22em 0 0.01em, 5em -30em 0 0.01em, 6em -24em 0 0.01em, 7.4em -11em 0 0.01em, 9.2em -9.4em 0 0.01em, 1em -22em 0 0.01em, 2em -14em 0 0.01em, 4em -21em 0 0.01em, 3.2em -16em 0 0.01em, -1em -21em 0 0.01em, -2em -19em 0 0.01em, -4em -17em 0 0.01em, -3.2em -15em 0 0.01em;
+        bottom: 200px;
+        opacity: 0;
+      }
+    }
+}
