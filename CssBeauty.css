@@ -43,7 +43,7 @@
 .sykui-menu span{top: 50%;right: 0px;margin-top: -1.5px;transition: 0.1s;-ms-transition: 0.1s; /* Internet Explorer */-moz-transition: 0.1s; /* Firefox */-webkit-transition: 0.1s; /* Safari 和 Chrome */-o-transition: 0.1s; /* Opera */}
 .sykui-menu:after{bottom: 0px;}
 .sykui-menu:before{top: 0px;}
-.sykui-menu.exit-open { position: absolute; top: 20px; }
+.sykui-menu.exit-open { position: absolute; top: 20px; right:0; }
 .sykui-menu.exit-open span{right: -100%;transition: 0.3s;-ms-transition: 0.3s; /* Internet Explorer */-moz-transition: 0.3s; /* Firefox */-webkit-transition: 0.3s; /* Safari 和 Chrome */-o-transition: 0.3s; /* Opera */}
 .sykui-menu.exit-open:after{transition-delay: 0.3s;bottom: 11px;/* Rotate div */transform: rotate(45deg);-ms-transform: rotate(45deg); /* Internet Explorer */-moz-transform: rotate(45deg); /* Firefox */-webkit-transform: rotate(45deg); /* Safari 和 Chrome */-o-transform: rotate(45deg); /* Opera */}
 .sykui-menu.exit-open:before{transition-delay: 0.3s;top: 11px;/* Rotate div */transform: rotate(-45deg);-ms-transform: rotate(-45deg); /* Internet Explorer */-moz-transform: rotate(-45deg); /* Firefox */-webkit-transform: rotate(-45deg); /* Safari 和 Chrome */-o-transform: rotate(-45deg); /* Opera */}
