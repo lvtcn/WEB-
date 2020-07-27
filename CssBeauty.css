@@ -61,3 +61,57 @@
 * @Funname: 渐变色线条
 * */
 .solid-linear-right{border-right:2px solid #c8dcc9;-o-border-image:linear-gradient(transparent,#a5aab5,transparent) 5 5;border-image:-webkit-gradient(linear,left top, left bottom,from(transparent),color-stop(#a5aab5),to(transparent)) 5 5;border-image:linear-gradient(transparent,#a5aab5,transparent) 5 5}
+
+/*
+* @Author:  siyuan
+* @Email:   2039750417@qq.com
+* @Funname: 动感页面加载球
+* */
+.loader,.loader__figure {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%)
+}
+
+.loader {
+	overflow: visible;
+	padding-top: 2em;
+	height: 0;
+	width: 2em
+}
+
+.loader__figure {
+	height: 0;
+	width: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 0 solid #1976d2;
+	border-radius: 50%;
+	-webkit-animation: loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+	-moz-animation: loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+	animation: loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1)
+}
+
+.loader__label {
+	float: left;
+	margin-left: 50%;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+	margin: 0.5em 0 0 50%;
+	font-size: 0.875em;
+	letter-spacing: 0.1em;
+	line-height: 1.5em;
+	color: #1976d2;
+	white-space: nowrap;
+	-webkit-animation: loader-label 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+	-moz-animation: loader-label 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+	animation: loader-label 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1)
+}
