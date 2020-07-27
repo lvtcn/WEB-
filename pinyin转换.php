@@ -6,8 +6,6 @@ header('Content-Type: text/html; charset=UTF-8');
 /**
  * @功能: 最全的PHP汉字转拼音函数 （共25961字，包括 20902基本字 + 5059生僻字）
  * @版本: 1.0.0
- * @作者: wuzhaohuan <kongphp@gmail.com> <blog.520.at>
- * @时间: 2013-10-08
  */
 function pinyin($s, $isfirst = false) {
 	static $pinyins;
