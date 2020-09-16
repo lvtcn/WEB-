@@ -6,9 +6,9 @@
 
 class WxOaController
 {
-    private $wx_appid = "wxd544371ba72dbb9a";
-    private $wx_appsecret = "ed2fdf540e62bb003f1088dfda332f13";
-    private $wx_redirect_uri = "http://glyj.t.lvtcn.com/api?c=WxOa&a=callLogin";
+    private $wx_appid = "";
+    private $wx_appsecret = "";
+    private $wx_redirect_uri = "";
     private $access_token;
 
     // 获取 oauth2Accesstoken
