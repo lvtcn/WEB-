@@ -116,12 +116,12 @@ checkFun(index, value, type) {
     var item = that.checkData[type][index]
     if(that.has(that[type], value)) {
         item.check = false
-        for (var i = 0, len = that[type].length; i < len; i++) { //遍历数组的值
+        for (var i = 0, len = that[type].length; i < len; i++) {
             if(that[type][i] == value) {
                 delete that[type][i];
             }
         }
-        for (var i = 0, len = that[type].length, check=[]; i < len; i++) { //遍历数组的值
+        for (var i = 0, len = that[type].length, check=[]; i < len; i++) {
             if(that[type][i]) {
                 check.push(that[type][i])
             }
