@@ -98,3 +98,51 @@ function GetQueryString(name) {
     if (r != null) return unescape(r[2]);
     return null;
 }
+
+/*
+* Name: Vue自定义复选框函数
+* @param index 所在for序列index
+* @param value 数值
+* @param type 所在数组名称
+* */
+checkFun(index, value, type) {
+    let that = this
+    console.log(that[type].length)
+    if(that[type].length == 0) {
+        that[type].push(value)
+        that.checkData[type][index].check = true
+        return
+    }
+    var item = that.checkData[type][index]
+    if(that.has(that[type], value)) {
+        item.check = false
+        for (var i = 0, len = that[type].length; i < len; i++) { //遍历数组的值
+            if(that[type][i] == value) {
+                delete that[type][i];
+            }
+        }
+        for (var i = 0, len = that[type].length, check=[]; i < len; i++) { //遍历数组的值
+            if(that[type][i]) {
+                check.push(that[type][i])
+            }
+        }
+        that[type] = check
+    } else {
+        item.check = true
+        that[type].push(value)
+    }
+    console.log(that[type])
+},
+    
+/*
+* Name: Vue数组包含检测函数
+* */
+has(arr, num) {
+    var bool = false; //默认不在数组中
+    for (var i = 0, len = arr.length; i < len; i++) { //遍历数组的值
+        if (arr[i] == num) {
+            bool = true; //若存在某个值与改值相等，bool值为true
+        }
+    }
+    return bool; //返回bool
+}
