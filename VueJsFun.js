@@ -103,35 +103,48 @@ function GetQueryString(name) {
 * Name: Vue自定义复选框函数
 * @param index 所在for序列index
 * @param value 数值
-* @param type 所在数组名称
+* @param type 存储字段
+* @param checkData 复选数据对象
+* @param field 选择对象中的数据字段键名
 * */
-checkFun(index, value, type) {
-    let that = this
-    console.log(that[type].length)
-    if(that[type].length == 0) {
-        that[type].push(value)
-        that.checkData[type][index].check = true
+
+// 直接函数
+checkBtn(index, value, field) {
+    if(this.parmloca.leixing_id.length >= 3) {
+        if(this.parmloca.leixing[field][index].checked == false) {
+            uni.showToast({
+                title: "最多选3中类型",
+                icon: 'none',
+                duration: 2000
+            });
+            return
+        }
+    }
+    this.checkFun(this, index, value, "leixing_id", "leixing", field)
+},
+
+// 辅助函数
+checkFun(that, index, value, type, checkData, field) {
+    // let that = this
+    var itemType = that.parmloca[type]
+    if(itemType.length == 0) {
+        itemType.push(value)
+        that.parmloca[checkData][field][index].checked = true
         return
     }
-    var item = that.checkData[type][index]
-    if(that.has(that[type], value)) {
-        item.check = false
-        for (var i = 0, len = that[type].length; i < len; i++) {
-            if(that[type][i] == value) {
-                delete that[type][i];
+    var item = that.parmloca[checkData][field][index]
+    if(that.has(itemType, value)) {
+        item.checked = false
+        for (var i = 0, len = itemType.length; i < len; i++) {
+            if(itemType[i] == value) {
+                itemType.splice(i, 1);
             }
         }
-        for (var i = 0, len = that[type].length, check=[]; i < len; i++) {
-            if(that[type][i]) {
-                check.push(that[type][i])
-            }
-        }
-        that[type] = check
     } else {
-        item.check = true
-        that[type].push(value)
+        item.checked = true
+        itemType.push(value)
     }
-    console.log(that[type])
+    console.log(itemType)
 },
     
 /*
