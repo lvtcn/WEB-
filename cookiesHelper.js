@@ -6,12 +6,13 @@ function SetCookie(name,value)//兩個參數，一個是cookie的名字，一個
     exp.setTime(exp.getTime() + Days*24*60*60*1000);
     document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
 }
+
 function getCookie(name)//取cookies函數
 {
     var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
-     if(arr != null) return unescape(arr[2]); return null;
-
+    if(arr != null) return unescape(arr[2]); return null;
 }
+
 function delCookie(name)//刪除cookie
 {
     var exp = new Date();
@@ -20,11 +21,9 @@ function delCookie(name)//刪除cookie
     if(cval!=null) document.cookie= name + "="+cval+";expires="+exp.toGMTString();
 }
 
-
 //示例
 //SetCookie ("xiaoqi", "3")
 //alert(getCookie('xiaoqi'));
-
 
 //URL字符串操作
 function request(name) {
