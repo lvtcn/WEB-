@@ -1,0 +1,136 @@
+<?php
+// 提交示例
+function bookBaojia()
+{
+    $tbl = 'productbaojia';
+    $xieyi = strpost('xieyi');
+    $formdata = getformdata($tbl, 0);
+    $formdata['createtime'] = time();
+    Msg(empty($xieyi), 'error', 'Please agree and check the agreement');
+    Msg(empty($formdata['prodchexing']), 'error', 'Please select a product type');
+    Msg(empty($formdata['relxing']), 'error', 'Please enter a last name');
+    Msg(empty($formdata['relname']), 'error', 'Please select a name');
+    Msg(empty($formdata['prodname']), 'error', 'Please select a product name');
+    Msg(empty($formdata['email']) || !chkemail($formdata['email']), 'error', 'Please enter your e-mail address');
+    Msg(empty($formdata['prodcolor']), 'error', 'Please select product color');
+    Msg(empty($formdata['phone']), 'error', 'Please enter your contact phone number');
+    Msg(empty($formdata['gmtime']), 'error', 'Please select the product purchase time');
+    Msg(empty($formdata['address']), 'error', 'Please enter your contact address');
+    saveformdata($formdata, $tbl);
+    $formdata['createtime'] = date("Y-m-d H:i:s");
+    $this->sendtxt("{$formdata['relname']}提交报价通知", "book", $formdata, $_SERVER['DOCUMENT_ROOT']);
+    Msg(true);
+}
+
+// 邮件数据替换
+function sendtxt($tpl, $data)
+{
+    $root = $_SERVER['DOCUMENT_ROOT'];
+    $txt = file_get_contents("{$root}/inc/tpl/{$tpl}.html");
+    foreach ($data as $k => $val) {
+        $txt = str_replace("{" . $k . "}", $val, $txt);
+    }
+    return $txt;
+}
+
+
+// 发送邮件
+function smsEmail($towho = "", $Subject = "", $body)
+{
+    $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+    try {
+        //服务器配置
+        $mail->CharSet ="UTF-8";                     // 设定邮件编码
+        $mail->SMTPDebug = 0;                        // 调试模式输出
+        $mail->isSMTP();                             // 使用SMTP
+        $mail->Host = 'smtp.qq.com';                 // SMTP服务器
+        $mail->SMTPAuth = true;                      // 允许 SMTP 认证
+        $mail->Username = 'siyuanjunr@qq.com';       // SMTP 用户名  即邮箱的用户名
+        $mail->Password = '';            // SMTP 密码  部分邮箱是授权码(例如163邮箱)
+        $mail->SMTPSecure = 'ssl';                   // 允许 TLS 或者ssl协议
+        $mail->Port = 465;                           // 服务器端口 25 或者465 具体要看邮箱服务器支持
+
+        $mail->setFrom('siyuanjunr@qq.com', 'siyuanjunr@qq.com');  //发件人
+
+        $mail->addAddress($towho);  // 收件人
+
+        $mail->addReplyTo('siyuanjunr@qq.com', 'info'); //回复的时候回复给哪个邮箱 建议和发件人一致
+        //$mail->addCC('cc@example.com');                    //抄送
+        //$mail->addBCC('bcc@example.com');                  //密送
+
+        //发送附件
+        // $mail->addAttachment('../xy.zip');         // 添加附件
+        // $mail->addAttachment('../thumb-1.jpg', 'new.jpg');    // 发送附件并且重命名
+
+        //Content
+        $mail->isHTML(true);                    // 是否以HTML文档格式发送  发送后客户端可直接显示对应HTML内容
+        $mail->Subject = $Subject;
+        $mail->Body    = sendtxt("email", ['body' => $body]);
+        $mail->AltBody = '如果邮件客户端不支持HTML则显示此内容';
+
+        $mail->send();
+        // echo '邮件发送成功';
+    } catch (Exception $e) {
+        // echo '邮件发送失败: ', $mail->ErrorInfo;
+    }
+}
+?>
+// 邮件通知模板
+<table id="table_body" width="100%" cellpadding="10" cellspacing="0" border="0" bgcolor="#f3f6f8"
+   style="margin: 30px 0; padding: 0; background: #f3f6f8;">
+<tbody>
+<tr>
+    <td>
+        <table id="table_wrapper" class="wrapper" width="570" align="center" cellpadding="0" cellspacing="0"
+               bgcolor="#ffffff"
+               style="background: #ffffff; border: 1px solid #E3EAEF; margin: 0 auto; min-width: 570px;">
+            <tbody>
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0"
+                           style="padding: 15px 30px; border-bottom-width: 1px; border-bottom-color: #E9EFF3; border-bottom-style: solid; text-align: center;">
+                        <tbody>
+                        <tr>
+                            <td valign="top" align="center" class="header">
+                                <a href="https://www.aijk1.cn" target="_blank">
+                                    <img src="https://www.aijk1.cn/app/static/images/logo.png" width="200">
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tbody>
+                        <tr>
+                            <td class="section"
+                                style="font: 18px/26px 'Helvetica Neue', sans-serif; padding: 60px 60px 50px;">
+                                <p style="direction: ltr; margin-top: 0; color: #4F748E; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 26px; margin-bottom: 25px;">{body}</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+<tr>
+    <td>
+        <table class="wrapper" width="570" align="center" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
+            <tbody>
+            <tr>
+                <td align="center" style="font: 14px/20px sans-serif; color: #668EAA; padding: 20px 5px 10px;">
+                    Copyright 2021 <a href="https://www.aijk1.cn" target="_blank">www.aijk1.cn</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+</tbody>
+</table>
