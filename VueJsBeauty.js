@@ -1,32 +1,4 @@
 /*
-* Name: VueRequst
-* */
-function get_info_action(that, url, data, datatype, datafleid) {
-    that.$http.get(apiUrl + url, data)
-        .then((response) => {
-            if (response.status === 200) {
-                var body = response.body;
-                if (body.code === 1) {
-                    datafleid = datafleid ? datafleid : 'paradata'
-                    // 数据赋值
-                    that[datafleid] = body
-                    if (datatype == "list") {
-                        that[datafleid].data = that[datafleid].data.concat(body.data)
-                    }
-                    // page dealwith
-                    if(that[datafleid].data.total) {
-                        that.pageFun(that, that.getstandardlist.data.total, that.pageTurner.pagecur)
-                    }
-                }
-            }
-        }, (response) => {
-            console.log(response)
-        }).catch(function (response) {
-        console.log(response)
-    })
-}
-
-/*
 * Name: Web-Vue.js Page function
 * @param that Belong to this
 * @param total dataNum
