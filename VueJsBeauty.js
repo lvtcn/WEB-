@@ -77,38 +77,26 @@ function GetQueryString(name) {
 * @param value 数值
 * @param type 存储字段
 * @param checkData 复选数据对象
-* @param field 选择对象中的数据字段键名
 * */
 
 // 直接函数
-checkBtn(index, value, field) {
-    if(this.parmloca.leixing_id.length >= 3) {
-        if(this.parmloca.leixing[field][index].checked == false) {
-            uni.showToast({
-                title: "最多选3中类型",
-                icon: 'none',
-                duration: 2000
-            });
-            return
-        }
-    }
-    this.checkFun(this, index, value, "leixing_id", "leixing", field)
+checkBtn(index, value) {
+    this.checkFun(this, index, value, "fromData", this.paramData)
 },
 
 // 辅助函数
-checkFun(that, index, value, type, checkData, field) {
-    // let that = this
-    var itemType = that.parmloca[type]
-    if(itemType.length == 0) {
+checkFun(that, index, value, type, checkData) {
+    let itemType = that.paramLoca[type]
+    if (itemType.length === 0) {
         itemType.push(value)
-        that.parmloca[checkData][field][index].checked = true
+        checkData[index].checked = true
         return
     }
-    var item = that.parmloca[checkData][field][index]
-    if(that.has(itemType, value)) {
+    let item = checkData[index]
+    if (that.tools.has(itemType, value)) {
         item.checked = false
-        for (var i = 0, len = itemType.length; i < len; i++) {
-            if(itemType[i] == value) {
+        for (let i = 0, len = itemType.length; i < len; i++) {
+            if (itemType[i] == value) {
                 itemType.splice(i, 1);
             }
         }
@@ -116,8 +104,8 @@ checkFun(that, index, value, type, checkData, field) {
         item.checked = true
         itemType.push(value)
     }
-    console.log(itemType)
-},
+    that.tools.dd("选中", itemType)
+}
     
 /*
 * Name: Vue数组包含检测函数
